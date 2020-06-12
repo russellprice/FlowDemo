@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.flowdemo.FirstFragmentViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="@+id/lastName"
+        app:layout_constraintStart_toStartOf="@+id/lastName"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="first"
+            android:text="@={viewModel.first}" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="last"
+        android:inputType="textPersonName"
+        android:text="@={viewModel.last}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstLayout" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="age"
+        android:text="@={viewModel.age}"
+        android:inputType="numberSigned|number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@{viewModel.firstCount}"
+        app:layout_constraintBottom_toBottomOf="@+id/firstLayout"
+        app:layout_constraintStart_toEndOf="@+id/firstLayout"
+        app:layout_constraintTop_toTopOf="@+id/firstLayout" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@{viewModel.lastcount}"
+        app:layout_constraintBottom_toBottomOf="@+id/lastName"
+        app:layout_constraintStart_toEndOf="@+id/lastName"
+        app:layout_constraintTop_toTopOf="@+id/lastName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@{viewModel.ageCount}"
+        app:layout_constraintBottom_toBottomOf="@+id/age"
+        app:layout_constraintStart_toEndOf="@+id/age"
+        app:layout_constraintTop_toTopOf="@+id/age" />
+
+    <TextView
+        android:id="@+id/combineCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@{viewModel.combineCount}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/age" />
+
+    <TextView
+        android:id="@+id/personOne"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@{viewModel.personOneData.toString()}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/combineCount" />
+
+    <TextView
+        android:id="@+id/clone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+    android:text="@{viewModel.cloneData.toString()}" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
